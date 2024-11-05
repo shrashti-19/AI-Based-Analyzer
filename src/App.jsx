@@ -7,6 +7,11 @@ import LandingPage from './components/LandingPage';
 import Login from './components/Login'; 
 import Signup from './components/Signup'; 
 import Dashboard from './components/Dashboard'; 
+import History from './components/History';
+import Profile from './components/Profile';
+import Results from './components/Results';
+import ResumeAnalyzer from './components/ResumeAnalyzer';
+import Navbar from './components/Navbar';
 
 const App = () => {
   const [user, setUser] = useState(null); // State to hold user info
@@ -28,6 +33,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Login />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/resume-analysis" element={<ResumeAnalysis />} />
+
       </Routes>
     </Router>
   );

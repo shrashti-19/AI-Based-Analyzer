@@ -7,11 +7,8 @@ import LandingPage from './components/LandingPage';
 import Login from './components/Login'; 
 import Signup from './components/Signup'; 
 import Dashboard from './components/Dashboard'; 
-import History from './components/History';
-import Profile from './components/Profile';
-import Results from './components/Results';
-import ResumeAnalyzer from './components/ResumeAnalyzer';
-import ForgotPassword from './components/ForgotPassword';
+import Pricing from './components/Pricing';
+
 
 const App = () => {
   const [user, setUser] = useState(null); // State to hold user info
@@ -28,7 +25,6 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/forgot-password" element={<ForgotPassword />} /> 
         <Route path="/" element={<LandingPage />} />
         
         {/* Public route for login with redirect if user is authenticated */}
@@ -47,22 +43,9 @@ const App = () => {
           path="/dashboard" 
           element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} 
         />
-        <Route 
-          path="/history" 
-          element={user ? <History /> : <Navigate to="/login" />} 
-        />
-        <Route 
-          path="/profile" 
-          element={user ? <Profile /> : <Navigate to="/login" />} 
-        />
-        <Route 
-          path="/results" 
-          element={user ? <Results /> : <Navigate to="/login" />} 
-        />
-        <Route 
-          path="/resume-analyzer" 
-          element={user ? <ResumeAnalyzer /> : <Navigate to="/login" />} 
-        />
+        <Route
+        path="/pricing" element ={<Pricing/>}/>
+
       </Routes>
     </Router>
   );

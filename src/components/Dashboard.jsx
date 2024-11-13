@@ -9,6 +9,7 @@ const Dashboard = () => {
   const [showCoverLetterDropdown, setShowCoverLetterDropdown] = useState(false);
   const [showPricingDropdown, setShowPricingDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showCandidateDropdown, setShowCandidateDropdown] = useState(false);
 
   return (
@@ -21,6 +22,13 @@ const Dashboard = () => {
           <button onClick={() => setShowMobileMenu(!showMobileMenu)}>
             <span className="text-white">☰</span>
           </button>
+        </div>
+        {/*Desktop Menu Button */}
+        <div className="lg:hidden">
+          <button onClick={()=> setShowDesktopMenu(!showDesktopMenu)}>
+            <span className="text-white">☰</span>
+          </button>
+
         </div>
         <div className="space-x-6 flex">
           {/* Features Dropdown */}
@@ -89,6 +97,10 @@ const Dashboard = () => {
                   </li>
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/candidate-AIResumeWriter")}
                   >AIResumeWriter
+
+                  </li>
+                  <li className="hover : bg-gray-700 p-2 rounded" onClick={()=> navigate("/candidate-applicationtracker")}
+                  > Application Tracking
 
                   </li>
                 </ul>

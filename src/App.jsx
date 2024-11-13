@@ -8,8 +8,9 @@ import Login from './components/Login';
 import Signup from './components/Signup'; 
 import Dashboard from './components/Dashboard'; 
 import Pricing from './components/Pricing';
-
-
+import CandidateProfile from './candidate/CandidateProfile';
+import AIResumeWriter from './candidate/AIResumeWriter';
+import ApplicationTracking from './candidate/ApplicationTracking';
 const App = () => {
   const [user, setUser] = useState(null); // State to hold user info
 
@@ -45,6 +46,12 @@ const App = () => {
         />
         <Route
         path="/pricing" element ={<Pricing/>}/>
+
+
+        <Route path="/candidate-profile" element={<CandidateProfile/>} />
+        <Route path ="/candidate-airesumewriter" element = {<AIResumeWriter/>}/>
+        <Route path ="/candidate-applicationtracker" element = {<ApplicationTracking/>}/>
+
 
       </Routes>
     </Router>

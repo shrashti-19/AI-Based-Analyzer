@@ -28,7 +28,7 @@ const CandidateProfile = () => {
     const handleSave = () => {
       setLoading(true);
       axios
-        .put("https://api.example.com/profile", profileData)
+        .put("https://api.example.com/profile", profileData) // replace it with the real API
         .then((response) => {
           alert("Profile saved!");
           setLoading(false);

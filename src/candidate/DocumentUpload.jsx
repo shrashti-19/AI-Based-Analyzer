@@ -39,8 +39,8 @@ const DocumentUpload = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-8">
-      <h2 className="text-2xl font-bold mb-4">Document Upload</h2>
+    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-3">
+      <h2 className="text-2xl font-bold mb-4 p-4 ">Document Upload</h2>
       <div className="border-2 border-dashed border-gray-500 rounded-lg p-8 flex flex-col items-center w-80 md:w-96 bg-gray-800">
         <FaCloudUploadAlt className="text-6xl text-gray-400 mb-4" />
         <input

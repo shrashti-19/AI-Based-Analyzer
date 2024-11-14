@@ -24,13 +24,8 @@ const Dashboard = () => {
           </button>
         </div>
         {/*Desktop Menu Button */}
-        <div className="lg:hidden">
-          <button onClick={()=> setShowDesktopMenu(!showDesktopMenu)}>
-            <span className="text-white">☰</span>
-          </button>
-
-        </div>
-        <div className="space-x-6 flex">
+       
+        <div className="space-x-6 flex space-x-6">
           {/* Features Dropdown */}
           <div
             onMouseEnter={() => setShowFeaturesDropdown(true)}
@@ -39,7 +34,7 @@ const Dashboard = () => {
           >
             <button className="hover:underline">Features</button>
             {showFeaturesDropdown && (
-              <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg">
+              <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg z-50">
                 <ul>
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/resume-builder")}>
                     Resume Builder
@@ -59,12 +54,6 @@ const Dashboard = () => {
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/ai-resume-writer")}>
                     AI Resume Writer
                   </li>
-                  <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/ai-cover-letter-writer")}>
-                    AI Cover Letter Writer
-                  </li>
-                  <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/ai-resignation-letter")}>
-                    AI Resignation Letter Generator
-                  </li>
                 </ul>
               </div>
             )}
@@ -78,7 +67,7 @@ const Dashboard = () => {
           >
             <button className="hover:underline">Candidate</button>
             {showCandidateDropdown && (
-              <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg">
+              <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg z-50">
                 <ul>
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/candidate-profile")}>
                     Profile
@@ -92,16 +81,22 @@ const Dashboard = () => {
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/candidate-notifications")}>
                     Notifications
                   </li>
-                  <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/candidate-careerMap")}>
-                  Career Map
-                  </li>
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/candidate-AIResumeWriter")}
                   >AIResumeWriter
 
                   </li>
-                  <li className="hover : bg-gray-700 p-2 rounded" onClick={()=> navigate("/candidate-applicationtracker")}
+                  <li className="hover:bg-gray-700 p-2 rounded" onClick={()=> navigate("/candidate-applicationtracker")}
                   > Application Tracking
 
+                  </li>
+                  <li className="hover:bg-gray-700 p-2 rounded" onClick={()=> navigate("/candidate-documentUpload")}>
+                    Document Upload
+                  </li>
+                  <li className="hover:bg-gray-700 p-2 rounded" onClick={()=> navigate("/candidate-jobSearch")}>
+                    Job Search
+                  </li>
+                  <li className="hover:bg-gray-700 p-2 rounded" onClick={()=> navigate("/candidate-notifications")}>
+                    Notifications
                   </li>
                 </ul>
               </div>
@@ -116,7 +111,7 @@ const Dashboard = () => {
           >
             <button className="hover:underline">Resume</button>
             {showResumeDropdown && (
-              <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg">
+              <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg z-50">
                 <ul>
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/resume/builder")}>
                     Create New Resume

@@ -11,6 +11,9 @@ import Pricing from './components/Pricing';
 import CandidateProfile from './candidate/CandidateProfile';
 import AIResumeWriter from './candidate/AIResumeWriter';
 import ApplicationTracking from './candidate/ApplicationTracking';
+import JobSearch from './candidate/Jobsearch';
+import DocumentUpload from './candidate/DocumentUpload';
+import Notifications from './candidate/Notifications';
 const App = () => {
   const [user, setUser] = useState(null); // State to hold user info
 
@@ -49,10 +52,11 @@ const App = () => {
 
 
         <Route path="/candidate-profile" element={<CandidateProfile/>} />
-        <Route path ="/candidate-airesumewriter" element = {<AIResumeWriter/>}/>
+        <Route path ="/candidate-AIResumeWriter" element = {<AIResumeWriter/>}/>
         <Route path ="/candidate-applicationtracker" element = {<ApplicationTracking/>}/>
-
-
+        <Route path = "/candidate-documentUpload" element = {<DocumentUpload/>}/>
+        <Route path = "/candidate-jobSearch" element = {<JobSearch/>}/>
+        <Route path ="/candidate-notifications" element = {<Notifications/>}/>
       </Routes>
     </Router>
   );

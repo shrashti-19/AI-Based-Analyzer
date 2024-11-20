@@ -1,64 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+const ForgotPassword = ()=>{
+  //state hooks for email, success message, error message
+  const [email,setEmail] = useState('');
+  const [message , setMessage] = useState('');
+  const [error , setError] = useState('');
+  const [loading , setLoading] = useState(false);
 
-  const handleResetPassword = async (e) => {
+  //handle the form submission for sending the reset link
+  const handleResetPassword  = async(e)=>{
     e.preventDefault();
-    try {
-      
+    setLoading(true);
+
+    try{
       await sendResetLink(email);
-      setMessage('Reset link has been sent to your email.');
-      setError(''); // Clear any previous error messages
-    } catch (err) {
-      setError('Failed to send reset link. Please try again.');
-      setMessage(''); // Clear any previous success messages
+      setMessage('A reset link has been sent to your mail');
+      setError('');
+    }catch(err){
+      setError('Failed to sent reset link. Please check your mail and try again');
+      setMessage('');
+    }finally{
+      setLoading(false);
     }
   };
+  return(
+    <div className="flex flex-col items center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded-lg shadow-md w-80">
+        <h1 className="text-xl font-semibold text-center mb-4 text-gray-800">
+          Forgot Password
+        </h1>
+        {/*Success or Error messages*/}
+        {message && <p className="text-sm text-green-600 text-cener">{message}</p>}
+        {error && <p className="text-sm text-red-600 text-center">{error}</p>}
 
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-blue-300">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-2xl font-bold mb-4 text-center">Forgot Password</h2>
-        {message && <p className="text-green-500 text-center">{message}</p>}
-        {error && <p className="text-red-500 text-center">{error}</p>}
-        <form onSubmit={handleResetPassword} className="flex flex-col space-y-4">
+        {/* Reset Password Form*/}
+        <form onSubmit={handleResetPassword} className="space-y-4">
           <div>
-            <label className="block mb-1 font-medium" htmlFor="email">Email:</label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+              Enter your Email : 
+            </label>
             <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
+            type = "email"
+            id="email"
+            value = {email}
+            onChange={(e)=>setEmail(e.target.value)}
+            required
+            placeholder="example@example.com"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            ></input>
           </div>
           <button
-            type="submit"
-            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200"
+          type="submit"
+          className={`w-full p-2 text-white font-medium rounded-md transition duration-200${
+            loading? 'bg-blue-300 cursor-not-allowed':'bg-blue-500 hover:bg-blue-600'
+          }`}
+          disabled={loading} //disable the button while loading
           >
-            Send Reset Link
+            {loading ? 'Sending .. ' : 'Send Reset Link'}
+
           </button>
         </form>
       </div>
     </div>
-  );
+  )
 };
-
-// Mock function to simulate sending a reset link
-const sendResetLink = async (email) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (email) {
-        resolve();
-      } else {
-        reject(new Error('Invalid email'));
-      }
-    }, 1000);
-  });
-};
-
 export default ForgotPassword;

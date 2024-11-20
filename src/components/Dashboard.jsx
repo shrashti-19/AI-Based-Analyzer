@@ -42,9 +42,6 @@ const Dashboard = () => {
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/cover-letter-builder")}>
                     Cover Letter Builder
                   </li>
-                  <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/website-builder")}>
-                    Website Builder
-                  </li>
                   <li className="hover:bg-gray-700 p-2 rounded" onClick={() => navigate("/career-map")}>
                     Career Map
                   </li>

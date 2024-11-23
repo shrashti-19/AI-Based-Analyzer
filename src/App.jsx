@@ -14,6 +14,7 @@ import ApplicationTracking from './candidate/ApplicationTracking';
 import JobSearch from './candidate/Jobsearch';
 import DocumentUpload from './candidate/DocumentUpload';
 import Notifications from './candidate/Notifications';
+import ResumeTemplates from './components/ResumeTemplates';
 const App = () => {
   const [user, setUser] = useState(null); // State to hold user info
 
@@ -57,6 +58,7 @@ const App = () => {
         <Route path = "/candidate-documentUpload" element = {<DocumentUpload/>}/>
         <Route path = "/candidate-jobSearch" element = {<JobSearch/>}/>
         <Route path ="/candidate-notifications" element = {<Notifications/>}/>
+        <Route path = "/resume-templates" element={<ResumeTemplates/>}/>
       </Routes>
     </Router>
   );

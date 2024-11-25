@@ -141,7 +141,7 @@ const LandingPage = () => {
 
             <footer className="bg-gray-900 text-white p-6">
                 <div className="mb-4">
-                    <Ratings /> {/* Place the Ratings component here */}
+                    <Ratings /> {/* Placing the Ratings component here */}
                     <div className="flex justify-center mt-2">
                         {[...Array(5)].map((_, i) => (
                             <FaStar key={i} className="text-yellow-400" />

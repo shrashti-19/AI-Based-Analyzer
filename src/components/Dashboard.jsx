@@ -145,14 +145,16 @@ const Dashboard = () => {
           </div>
 
         {/*Pricing Buttons*/}
-        <div 
-        onMouseEnter={()=> setShowPricingDropdown(true)}
-        onMouseLeave={()=> setShowPricingDropdown(false)}
-        className="relative"
-        >
-          <button className="hover:underline">Pricing</button>
+        <div className="relative">
+          <button
+          onClick={()=>setShowPricingDropdown((prev)=>!prev)}
+          className="hover:underline"
+          >
+            Pricing
+          </button>
+       
           {showPricingDropdown && (
-            <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg">
+            <div className="absolute top-12 left-0 bg-gray-800 text-white border border-gray-700 rounded-lg p-4 w-64 shadow-lg z-50">
               <ul>
                 <li className="hover:bg-gray-700 p-2 rounded" onClick={()=> navigate("/pricing")}>
                   View Pricing Plans

@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -30,38 +29,42 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        
-        {/* Public route for login with redirect if user is authenticated */}
-        <Route 
-          path="/login" 
-          element={user ? <Navigate to="/dashboard" /> : <Login />} 
+        {/*default route goes to the landing page*/}
+        <Route path='/' element={<LandingPage/>}/>
+        {/*Redirect to login or dashboard on authentication*/}
+        <Route
+        path='/'
+        element = {user ? <Navigate to="/dashboard"/> : <Navigate to = "/login"/>}
         />
-
-        <Route 
-          path="/signup" 
-          element={user ? <Navigate to="/dashboard" /> : <Signup />} 
-        />
-        
-        {/* Private routes, accessible only when user is authenticated */}
-        <Route 
-          path="/dashboard" 
-          element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} 
+        {/*Public routes*/}
+        <Route
+        path='/login'
+        element={user ? <Navigate to = '/dashboard'/> :  <Login/>}
         />
         <Route
-        path="/pricing" element ={<Pricing/>}/>
+        path='/signup'
+        element={user ? <Navigate to ='/dashboard'/> : <Signup/>}
+        />
+        {/*private routes*/}
+        <Route
+        path='/dashboard'
+        element={user?<Dashboard user = {user}/> : <Navigate to = "/login"/>}
+        />
+        <Route path='/pricing' element={<Pricing/>}/>
+        <Route path = '/candidate-profile' element={<CandidateProfile/>}/>
+        <Route path='/candidate-AIResumeWriter' element={<AIResumeWriter/>}/>
+        <Route path='/candidate-applicationtracker' element={<ApplicationTracking/>}/>
+        <Route path = '/candidate-documentUpload' element={<DocumentUpload/>}/>
+        <Route path='/candidate-jobSearch' element={<JobSearch/>}/>
+        <Route path = '/candidate-notifications' element={<Notifications/>}/>
+        <Route path='/resume-templates' element={<ResumeTemplates/>}/>
 
-
-        <Route path="/candidate-profile" element={<CandidateProfile/>} />
-        <Route path ="/candidate-AIResumeWriter" element = {<AIResumeWriter/>}/>
-        <Route path ="/candidate-applicationtracker" element = {<ApplicationTracking/>}/>
-        <Route path = "/candidate-documentUpload" element = {<DocumentUpload/>}/>
-        <Route path = "/candidate-jobSearch" element = {<JobSearch/>}/>
-        <Route path ="/candidate-notifications" element = {<Notifications/>}/>
-        <Route path = "/resume-templates" element={<ResumeTemplates/>}/>
       </Routes>
+
+    
     </Router>
-  );
+  )
+    
 };
 
 export default App;
